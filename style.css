@@ -1,0 +1,547 @@
+/* =========================
+   Overall settings
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    color: white;
+    text-align: center;
+}
+
+
+/* =========================
+   Opening screen
+   ========================= */
+
+#opening {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        to bottom,
+        #b8e8f5,
+        #5bb9d1,
+        #176b87,
+        #073b5c
+    );
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Title */
+
+#opening h1 {
+    font-size: 3rem;
+    font-weight: normal;
+    letter-spacing: 2px;
+
+    margin-bottom: 40px;
+
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Shell */
+
+.shell {
+    font-size: 100px;
+
+    margin-bottom: 40px;
+
+    animation: float 3s ease-in-out infinite;
+}
+
+
+/* Dive button */
+
+button {
+    padding: 15px 35px;
+
+    border: 2px solid white;
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+
+    font-size: 1.1rem;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+/* Button hover */
+
+button:hover {
+    background: white;
+    color: #176b87;
+
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   Ocean screen
+   ========================= */
+
+#ocean {
+    min-height: 100vh;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        to bottom,
+        #b8e8f5 0%,
+        #5bb9d1 35%,
+        #176b87 70%,
+        #073b5c 100%
+    );
+}
+
+
+/* =========================
+   Birthday screen
+   ========================= */
+
+#birthday {
+    min-height: 100vh;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        to bottom,
+        #b8e8f5 0%,
+        #5bb9d1 35%,
+        #176b87 70%,
+        #073b5c 100%
+    );
+}
+
+
+/* Cake */
+
+.cake {
+    font-size: 160px;
+    margin: 20px;
+
+    position: relative;
+    z-index: 2;
+
+    animation: cakeFloat 3s ease-in-out infinite;
+}
+
+/* =========================
+   Shell floating animation
+   ========================= */
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   Bubbles
+   ========================= */
+
+.bubbles {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+.bubbles span {
+    position: absolute;
+
+    bottom: -60px;
+
+    font-size: 25px;
+
+    opacity: 0;
+
+    animation-name: bubbleUp;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
+/* Bubble positions */
+
+.bubbles span:nth-child(1) {
+    left: 10%;
+    animation-duration: 7s;
+}
+
+.bubbles span:nth-child(2) {
+    left: 27%;
+    animation-duration: 9s;
+    animation-delay: 2s;
+    font-size: 18px;
+}
+
+.bubbles span:nth-child(3) {
+    left: 43%;
+    animation-duration: 6s;
+    animation-delay: 4s;
+    font-size: 30px;
+}
+
+.bubbles span:nth-child(4) {
+    left: 60%;
+    animation-duration: 8s;
+    animation-delay: 1s;
+    font-size: 20px;
+}
+
+.bubbles span:nth-child(5) {
+    left: 76%;
+    animation-duration: 10s;
+    animation-delay: 3s;
+    font-size: 27px;
+}
+
+.bubbles span:nth-child(6) {
+    left: 90%;
+    animation-duration: 7.5s;
+    animation-delay: 5s;
+    font-size: 16px;
+}
+
+
+/* Bubble movement */
+
+@keyframes bubbleUp {
+
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    30% {
+        transform: translateY(-30vh) translateX(15px);
+    }
+
+    60% {
+        transform: translateY(-65vh) translateX(-15px);
+        opacity: 0.7;
+    }
+
+    90% {
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translateY(-120vh) translateX(20px);
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================
+   Fish swimming
+   ========================= */
+
+.birthday-fish {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+.birthday-fish .fish {
+    position: absolute;
+    right: -100px;
+    font-size: 45px;
+
+    animation-name: swim;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    z-index: 1;
+
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+
+/* Fish 1 */
+
+.fish1 {
+    top: 20%;
+
+    animation-duration: 9s;
+}
+
+
+/* Fish 2 */
+
+.fish2 {
+    top: 35%;
+
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+
+
+/* Fish 3 */
+
+.fish3 {
+    top: 65%;
+
+    animation-duration: 10s;
+    animation-delay: 4s;
+}
+
+
+/* Fish 4 */
+
+.fish4 {
+    top: 80%;
+
+    animation-duration: 14s;
+    animation-delay: 1s;
+}
+
+
+/* Swimming movement */
+
+@keyframes swim {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-120vw);
+    }
+
+}
+
+#birthday h1,
+#birthday p,
+#birthday button {
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================
+   Cake floating
+   ========================= */
+
+@keyframes cakeFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================
+   Final Message
+   ========================= */
+
+#message {
+    min-height: 100vh;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        to bottom,
+        #5bb9d1 0%,
+        #176b87 45%,
+        #073b5c 100%
+    );
+}
+
+
+/* Message card */
+
+.message-card {
+    position: relative;
+    z-index: 2;
+
+    padding: 45px 60px;
+
+    max-width: 600px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.15);
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* Pearl */
+
+.pearl {
+    font-size: 80px;
+
+    margin-bottom: 20px;
+
+    animation: pearlFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes pearlFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* Message title */
+
+.message-card h1 {
+    font-size: 2.5rem;
+
+    font-weight: normal;
+
+    margin-bottom: 30px;
+}
+
+
+/* Message text */
+
+.message-card p {
+    font-size: 1.15rem;
+
+    line-height: 1.8;
+
+    margin: 20px 0;
+}
+
+/* =========================
+   Big Shell in Ocean
+   ========================= */
+
+.ocean-shell {
+    font-size: 140px;
+    margin-bottom: 20px;
+
+    animation: shellFloat 3s ease-in-out infinite;
+
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes shellFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   Fish Click Animation
+   ========================= */
+
+.fish.paused {
+    animation-play-state: paused;
+}
+
+@keyframes fishJump {
+    0% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-35px);
+    }
+
+    70% {
+        transform: translateY(5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
